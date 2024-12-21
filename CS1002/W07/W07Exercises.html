@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CS1002 Week 7 Exercise</title>
+    <link rel="stylesheet" type="text/css" href="css/standard.css">
+
+</head>
+
+<body>
+    <header>
+        <div id="banner">
+            <a title="University of St Andrews home" href="https://www.st-andrews.ac.uk">
+                <img alt="University of St Andrews crest" src="css/v2-img_header_crest_1413.gif" />
+            </a>
+            <a title="CS1002" href="http://studres.cs.st-andrews.ac.uk/CS1002">CS1002 &mdash; Object Oriented
+                Programming</a>
+        </div>
+        <h1>CS1002 Week 7 Exercises</h1>
+        <p><strong>Deadline:</strong> Friday 1st November 2024 at 13:00</p>
+        <p><strong>MMS Slot:</strong> CS1002 Exercises &gt; Ex07</p>
+		<p class="info">
+		Exercises do not count toward your final module grade but you are required to attend the lab, and to complete and submit them to the correct slot in MMS by the deadline. You will not receive feedback on your exercise submissions but you are encouraged to speak to your tutor, lecturers or lab demonstrators if you encounter anything you are unsure about. 
+        <br><br> 
+			Each exercise is designed to take approximately 50 minutes to complete assuming you have 
+            attended the lectures, reviewed the lecture recordings &amp; slides, and
+            read, run &amp; explored the example code. If you have not completed any of this 
+            preparation, you should expect the exercises to take longer.
+        </p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Introduction</h2>
+            <p>There is only one set of exercises this week, involving writing code using arrays. You may need to use both exercise class sessions to complete the exercises.</p>
+
+            <p>As with all the weekly exercises, try to work out any solutions and fix any problems by yourself, but do
+            not waste too much time doing this; there are demonstrators to help you — use them!</p>
+
+            <h3>Checkin</h3>
+
+            <p>Remember, <strong>attendance at exercise classes is compulsory</strong>. So you need to record
+            that you are here by logging into the lab machine you will be working on, opening a terminal, and
+            running the following command:</p> <pre><code>/cs/studres/ct/checkin cs1002</code></pre>
+
+            <p>If you are not sure how to open a terminal, refer back to the introductory instructions provided at: <a
+href="https://studres.cs.st-andrews.ac.uk/CS1002/Exercises/Setup.html">https://studres.cs.st-andrews.ac.uk/CS1002/Exercises/Setup.html</a>
+            </p>
+
+            <h3>Setting Up</h3>
+
+            <p>You are provided with some starter code, including empty methods <em>exercise1</em> to
+            <em>exercise7</em>. Your task is to complete the bodies of these methods according to the instructions
+            below.</p>
+
+            <p>Create a new folder called <em>W07Exercises</em> inside your <em>CS1002</em> folder. Download the file <a
+            href="W07Exercise1.java">W07Exercise1.java<a> and move it into the new folder. Open the file in VS Code.</p>
+
+        </section>
+
+        <section>
+            <h2>Exercises</h2>
+            
+			<h3>Exercise 1</h3>
+			
+<p>Inside method <em>exercise1</em>, add code to create an integer array of a size input by the user. It should then repeatedly prompt the user to input an integer to be stored in each element of the array. Finally, it should print out each element of the array on a separate line. The following example illustrates the format required by <em>stacscheck</em>:</p>
+
+<code><pre>Enter number of elements:
+3
+Enter element:
+4
+Enter element:
+1
+Enter element:
+17
+Elements:
+4
+1
+17</pre></code>
+
+Run the program to check it works, and then run <em>stacscheck</em>:
+
+<p><code>stacscheck /cs/studres/CS1002/Exercises/W07/Tests/</code></p>
+
+<p>At this stage, if your first exercise works correctly, you should see 5 tests passed.</p>
+
+	<h3>
+		Exercise 2
+	</h3>
+	
+<p>Many of this week's exercises require you to create an integer array based on user input. To avoid having to repeat this code in every case, create a method called <em>getArray</em> to do this. You can copy and paste relevant code from exercise 1 if you like.</p>
+
+<p>Now complete method <em>exercise2</em>, which should do the same thing as <em>exercise1</em>, but calling your <em>getArray</em> method to create the array.</p>
+
+<p>Test manually, then run <em>stacscheck</em> again and fix any errors in this exercise. At this stage you should see 6 tests passed.</p>
+
+	<h3>
+		Exercise 3
+	</h3>
+	
+<p>Continue in the same way to add methods for the other exercises. Run <em>stacscheck</em> after adding each one. 
+
+Exercise 3 should call <em>getArray</em>, and then find the maximum value within it, by checking every element. It should print out the maximum value after the label <em>Maximum value:</em></p>
+
+<p>Test manually, then run <em>stacscheck</em> again and fix any errors in this exercise. At this stage you should see 8 tests passed.</p>
+
+	<h3>
+		Exercise 4
+	</h3>
+	
+<p>This should create an array using <em>getArray</em>, and then calculate the mean of the values within it. It should print out the mean value after the label <em>Mean value:</em>. Note that while the array elements are integers, the mean may not be an integer.</p>
+
+<p>Test manually, then run <em>stacscheck</em> again and fix any errors in this exercise. At this stage you should see 9 tests passed.</p>
+
+	<h3>
+		Exercise 5
+	</h3>
+	
+<p>This should create an array using <em>getArray</em>, and then prompt the user to enter an integer value, with the prompt <em>Enter element to search for:</em>. It should then search through the array to see whether it contains that value. The method should print the index (i.e. position within the array) of the first occurence of the value, or -1 if the value is not found, after the label <em>First occurrence at index:</em>.</p> 
+
+<p>Test manually, then run <em>stacscheck</em> again and fix any errors in this exercise. At this stage you should see 13 tests passed.</p>
+
+	<h3>
+		Exercise 6
+	</h3>
+	
+<p>This exercise is the same as the previous exercise, except that it should search for the last occurrence of the given value, rather than the first. The result should be printed with the label <em>Last occurrence at index:</em>.</p> 
+
+<p>Test manually, then run <em>stacscheck</em> again and fix any errors in this exercise. At this stage you should see 14 tests passed.</p>
+
+	<h3>
+		Exercise 7
+	</h3>
+	
+<p>This exercise uses two-dimensional arrays, so you should <strong>not</strong> use <em>getArray</em>.</p>
+
+<p>The method should create a 2-D integer array of size 3 x 3. It should then prompt the user to enter a value for each element, using a prompt specifying the particular indexes. For example, to input the value for the element with indexes [2][1]:</p>
+
+<code>Enter element [2,1]:</code>
+
+<p>It should then create a second array of the same size as the first, and fill in the elements such that the second array is the <em>transpose</em> of the first, i.e. the rows and columns are swapped. Finally, it should print out the second array after the label <em>Transposed array:</em>. For example, if the contents of the first array input by the user are:
+
+<code><pre>7 3 4
+17 2 17
+-7 0 17</pre></code>
+
+<p>then the output should be:</p>
+
+<code><pre>Transposed array:
+7 17 -7
+3 2 0
+4 17 17</pre></code>
+
+<p>Test manually, then run <em>stacscheck</em> again and fix any errors in this exercise. At this stage you should see all tests passed.</p>
+
+        </section>
+
+        <section>
+            <h2 id="submission">Submission</h2>
+            <p>You will need to submit your exercise attempt to MMS as a <strong>ZIP</strong> file to the Ex07 
+                slot in CS1002 Exercises. As always, you should receive an automatic email receipt, 
+                which you should keep since it proves that you uploaded the file.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <x-author><em>Author</em>: Graham Kirby</x-author>
+        <x-module><em>Module</em>: CS1002 &ndash; Week 7 Exercise</x-module>
+        <x-copyright>© School of Computer Science, University of St Andrews</x-copyright>
+    </footer>
+
+</body>
+
+</html>

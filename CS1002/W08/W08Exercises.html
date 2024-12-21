@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CS1002 Week 8 Exercise</title>
+    <link rel="stylesheet" type="text/css" href="css/standard.css">
+
+</head>
+
+<body>
+    <header>
+        <div id="banner">
+            <a title="University of St Andrews home" href="http://www.st-andrews.ac.uk">
+                <img alt="University of St Andrews crest" src="css/v2-img_header_crest_1413.gif" />
+            </a>
+            <a title="CS1002" href="http://studres.cs.st-andrews.ac.uk/CS1002">CS1002 &mdash; Object Oriented
+                Programming</a>
+        </div>
+        <h1>CS1002 Week 8 Exercises</h1>
+        <p><strong>Deadline:</strong> Friday the 8<sup>th</sup> November 2024 at 14:00</p>
+        <p><strong>MMS Slot:</strong> CS1002 Exercises &gt; Ex08</p>
+		<p class="info">
+            Exercises do not count toward your final module grade but you are required to complete and submit them to
+            the correct slot in MMS by the deadline. You will not receive feedback on your exercise submissions but
+            you are encouraged to speak to your tutor, lecturers or lab demonstrators if you encounter anything you are
+            unsure about.
+        <br><br> 
+			Each exercise is designed to take approximately 50 minutes to complete assuming you have 
+            attended the lectures, reviewed the lecture recordings &amp; slides, and
+            read, run &amp; explored the example code. If you have not completed any of this 
+            preparation, you should expect the exercises to take longer.
+        </p>
+    </header>
+
+    <main>
+        <section class="nocount">
+            <h2 id="introduction">Introduction</h2>
+            <p>In this week's lectures you have learned how to</p>
+            <ul>
+                <li>specify modifiers to control visibility, mutability and association with a class or object
+                </li>
+                <li>define multiple constructors in a class (overloading)
+                </li>
+                <li>define multiple methods with the same name in a class (overloading)</p>
+                </li>
+            </ul>
+            <p>The aim of this exercise is to practice using different modifiers, and overloading constructors &amp;
+                methods.
+                You will also practice using reference types and arrays. If
+                you run into any problems during this exercise, seek demonstrator support.</p>
+
+            <h3>Design your code</h3>
+            <p>You will build on the <code>Mug</code> class you
+                created in week 3, extending the system to include the concepts of shops that sell drinks that are served in mugs.
+                You will be expected to use a lot more of your own judgement to decide what fields, constructors and methods are needed.
+                You can use the autochecker to see if your ideas match the desired system.
+            </p>
+            <p>You should begin by read the description
+                below and noting down your initial ideas on what classes, attributes, constructors, and methods you might
+                need. Your initial ideas may evolve as you work through this exercise sheet. Keep track of how they
+                match or differ from the instructions, and how they change as you complete this week's tasks.
+            </p>
+            <blockquote id="system-description">
+                &ldquo;Each coffee shop has a name, address and a star rating (out of 5), and offers up to 10 drinks. 
+                Each drink has a name and price, and may or may not contain caffeine. 
+                Each drink is served in a mug. Each mug has a name, a height and a width. 
+                Each coffee shop starts with a rating of 0 and offers no drinks.
+                Each coffee shop must be able to increment and decrement its star rating, 
+                print its details, print its drinks menu, change what drinks it offers, and sell a drink from its menu. 
+                Each drink must be able to change its name and price, and print its details, including the volume of the mug it is served in and how many marshmallows can be added.
+                The gross sales across all coffee shops must be recorded, i.e. there should be a single number that represents 
+                the total sales, regardless of which shop made a sale.
+                &rdquo;
+            </blockquote>
+            <p>You should already have a Mug class from the week 3 exercises that you can use, so you will focus on representing a <em>drink</em> and
+                a <em>coffee shop</em>, and linking all these concepts together.
+            </p>
+            <p>A sample Mug class is provided along with this exercise if you do not wish to use your own.
+                Similar to week 3 exercise 1, you will not be building a complete system; instead you will be building
+               the core
+                classes that could be included in a larger project. Remember, if it helps, you can imagine that another
+                programmer will build a text-based or graphical user interface that will use your classes.</p>
+
+            <h3 id="copy-and-extract-a-zip-file-from-student-resources">Copy and extract a zip file from student
+                resources</h3>
+            <p>You need to copy a <em>.zip</em> file from the studres server. This is located at:</p>
+            <p><a
+                    href="https://studres.cs.st-andrews.ac.uk/CS1002/Exercises/W08">https://studres.cs.st-andrews.ac.uk/CS1002/Exercises/W08</a>
+            </p>
+            <p>The <em>.zip</em> contains the starter code for this week's exercise. Download the
+                <em>.zip</em> and extract the contents to your <em>CS1002</em> folder.
+            </p>
+            <p>If you want to build from your own week 3 solution, replace the <em>Mug.java</em> in the <em>W08Exercises</em> directory with your own
+                and update the contents of the main method in <em>W08Exercises.java</em> to match it. 
+                Make sure the updated code compiles and runs before you start
+                this week's exercises. 
+            </p>
+			
+			<h3 id="checkin">Checkin</h3>
+			<p>Remember, <strong>attendance at exercise classes is compulsory</strong>. So you need to record that you are here by logging into the lab machine you will be working on, opening a terminal, and running the following command:</p>
+			<pre><code>/cs/studres/ct/checkin cs1002</code></pre>
+			<p>Remember to do this on Thursday <strong>and</strong> Friday.</p>
+        </section>
+
+        <section>
+            <h2 id="mug-class">Exercise 1a : Mug class</h2>
+            <p>In the Mug class in your W08Exercises directory, you should have a method that works out how many marshmallows fit into the mug.
+                You were told that you could add 1 marshmallow per every 0.2<em>l</em> of volume and you likely
+                hard-coded this value in your method.
+                This is what we call a <em>magic constant</em> and ideally should be avoided.
+            </p>
+            <p class="hint">Add a new attribute to your Mug class to represent the constant <code>LITRES_PER_MALLOW</code>.
+                Think carefully about what type and modifiers it will need. Does each object need a different value or
+                do they all share the same value? Was the litres per marshmallow different for each mug before we added
+                the constant?
+                Remember, <code>final</code> means a field or variable value cannot be changed after it is initialised, 
+                and <code>static</code> means there is just 1 value for the class, rather than different values for each instance.
+            </p>
+            <p>Initialise the attribute to 0.2 and replace the hard-coded value in your method with a reference to your
+                new constant.
+            </p>
+        </section>
+
+        <section>
+            <h2 id="drink-class">Exercise 1b : Drink class</h2>
+            <p>Declare a new class called <code>Drink</code> in your W08Exercises directory.</p>
+
+            <h3>Drink class:  attributes</h3>
+            <p>Inside the Drink class, add all the required attributes 
+                (inferred from the <a href="#system-description">system's description</a>).
+                Think carefully about the names and types for each of your attributes.
+                Pay particular attention to relationships between classes and make sure you chose appropriate types.
+            </p>
+            <p class="hint">Based on the description, each drink needs a name, a price, and whether or not it contains caffeine. 
+                It also needs the mug it is served in. 
+                Pay particular attention to any reference type attributes and make sure you chose appropriate types for them.
+                Also, remember you can use the <code>final</code> modifier to ensure the value of a field or variable cannot be changed after initialisation.
+                So you could use <code>final</code> to ensure we cannot change whether or not a drink contains caffeine.
+            </p>
+
+            <h3>Drink class:  getters and setters</h3>
+            <p>Add suitable getters and setters for your attributes.
+                Think carefully about whether the value needs to be seen or change from outside the class.
+                Remember, to pay particular attention to any reference type attributes and make sure you chose appropriate return and parameter types for their getter/setters.
+            </p>
+            <p class="hint">We can assume we need to get all the attribute values outside the class 
+                but that we can only set the name, price and mug.
+            </p>
+
+            <h3>Drink class: constructors</h3>
+            <p>Add constructors to the Drink class. Think carefully about what information a drink needs on creation.
+                Again, pay particular attention to relationships between classes and make sure you chose appropriate
+                parameter types.
+            </p>
+            <p class="hint">Since the description gives no information about how to create a Drink, you can assume
+                a constructor that takes a parameter for each attribute is required &mdash; name, price, caffeination, and mug. 
+                You can also assume that, since most coffee-drinks are caffeinated, it would be good to allow a
+                drink to be created by just specifying name, price, and mug. 
+                To achieve this, you will need to write 2 constructors, one that takes 4 parameters, and one that takes 3.
+                You will need to think carefully about how to initialise the field that does not have a corresponding parameter in the second version of your constructor.
+                You should also think about how you can reduce code repetition by linking your constructors.
+            </p>
+
+            <h3>Drink class: methods</h3>
+            <p>Add any additional methods required by the description.</p>
+            <p class="hint">Based on the description, each drink needs to be able to print its own details. So add a
+                no parameter, void method to print the details of the drink. 
+                You should print out appropriate attributes from this object and the object(s) associated with it. 
+                If you chose the right type to store the mug the drink is served in, you should be
+                able to call the methods to get the mug's volume and marshmallow limit within the drink's print method.
+            </p>
+
+            <h3>Drink class: testing</h3>
+            <p>Test your Drink class using the autochecker:</p>
+            <pre><code>stacscheck /cs/studres/CS1002/Exercises/W08/Tests/</code></pre>
+            <p>You should read the output carefully. If all has gone well, you should see GREEN for all the Mug and all the Drink tests, but RED for all the CoffeeShop tests (because we have not written this class yet).</p>
+            <p>As well as using the autochecker, you should write some code to test your Drink class manually. Again, you will not ask for any user input, instead you will create objects using hard-coded values so you can check your methods behave as you expect them to.
+            </p>
+            <p>Update the main method in your <code>W08Exercises</code> class to test your new
+                Drink class. 
+                At a minimum, you should create 3 hard-coded Drink objects and call various methods on them. For example:
+            </p>
+            <ul>
+                <li>
+                    a coffee drink (e.g. an espresso) which is served in a small-sized mug
+                </li>
+                <li>
+                    a different coffee drink (e.g. a latte) which is served in a standard-sized mug
+                </li>
+                <li>
+                    a caffeine-free drink (e.g. chamomile tea) which is served in a standard-sized mug
+                </li>
+            </ul>
+
+            <p>Reflect on your initial ideas for this class. Does the implementation differ from your initial notes?
+                If so, think about how and why it is different. Feel free to discuss the differences with the
+                demonstrators.
+            </p>
+        </section>
+
+        <section>
+            <h2 id="coffeeshop-class">Exercise 2: CoffeeShop class</h2>
+            <p>Declare a new class called <code>CoffeeShop</code> in your W08Exercises directory.</p>
+
+            <h3>CoffeeShop class:  attributes</h3>
+            <p>Inside the CoffeeShop class, add all the required attributes
+                 (again, these can be inferred from the <a href="#system-description">system's description</a>).</p>
+            <p class="hint">Based on the description,
+                each CoffeeShop needs a name, an address, and a star rating. It also needs up to 10 drinks.
+                Rather than have 10 separate attributes, one for each drink, you should use an array.
+                All coffee shops have the same maximum limit for the permitted number of drinks so
+                it would be sensible to have a constant field to represent this.
+                You also need to record the total revenue across all coffee shops.
+                Remember, this should be a single number that all coffee shop's can access, rather than a separate 
+                number for each coffee shop. Think carefully about what modifiers it will need. You will need
+                to ensure the attribute is properly encapsulated so you can control how it is accessed and modified.
+                Remember, <code>final</code> means a field or variable value cannot be changed after it is initialised, 
+                and <code>static</code> means there is just 1 value for the class, rather than different values for each instance.
+            </p>
+
+            <h3>CoffeeShop class:  getters and setters</h3>
+            <p>Add suitable getters and setters for your attributes.</p>
+            <p class="hint">We can assume we need to get the name, address, star rating and total revenue outside the class, 
+                but that we can only set the name and address. 
+                We will assume that we cannot get or set our entire drinks array, 
+                and we will deal with getting and setting individual drinks later in the exercise.
+            </p>
+
+            <h3>CoffeeShop class:  constructor</h3>
+            <p>Add a constructor to the CoffeeShop class.</p>
+            <p class="hint">Based on the description, all coffee shops start with 0 rating and no drinks, 
+                so you need a constructor that takes the name and address as parameters.
+                Remember, you should initialise any field that does not have a corresponding parameter to some sensible value.
+            </p>
+
+            <h3>CoffeeShop class:  methods</h3>
+            <p>Add any additional methods required by the description.</p>
+            <p>Based on the description, each coffee shop needs to be able to:</p>
+            <p class="hint">1. increment and decrement
+                its star rating. So, add 2 no parameter, void methods: one that adds 1 to the star rating
+                (increments the rating); and one that
+                subtracts 1 from the star rating (decrements the rating).
+                You will need to include some logic within
+                your methods to prevent the star rating becoming greater than 5 or less than 0.
+            </p>
+            <p class="hint">2. print its details. 
+                So, add another no parameter, void method: that prints the name, address and star rating of the coffee shop.
+            </p>
+            <p class="hint">3. print its menu. 
+                So, add another no parameter, void method: that prints each drink in a coffee shop's array.
+                The method should print the 'menu number' for each drink followed by the drink details.
+                Menu numbers should start at 1 and go up to 10 &mdash; so array element 0 will have the menu number 1, 
+                array element 1 will have the menu number 2, and so on up to array element 9 having the menu number 10.
+                The method should not print any elements that are null. 
+                Remember to minimise code repetition by calling appropriate methods.
+            </p>
+            <p class="hint">4. change what drinks it offers. 
+                We will assume you can do this in 2 different ways: first by providing the drink and the 
+                'menu number' for the drink (i.e. 1 for the first drink on the menu, 2 for the second and so on);
+                and second, by providing just the drink and letting the coffee shop decide where it appears on the menu.
+                Since these methods are very similar in functionality, it makes sense for them to have the same name &mdash; <code>setDrink</code>.
+                The first version of this should take a drink and an integer parameter and should set the appropriate 
+                element in the array &mdash; remember arrays are indexed from 0 but our 'menu numbers' start at 1 so you will need to adjust the
+                value when you access the array. If the integer is outside the valid range, the method should do nothing.
+                The second version should just take a drink parameter and should loop through the array of drinks until it finds a null value,
+                then sets that element to the given value. If there are no nul values in the array, the method should do nothing.
+            </p>
+            <p class="hint">5. sell its drinks. 
+                So, add another method that takes an integer parameter representing a 'menu number', 
+                and adds the price of the appropriate element in the drinks array to the total revenue.
+                If the 'menu number' is out of bounds or does not correspond to a non-null element, then the method should just to nothing.
+                Pay attention to the rules on when you can access instance fields and static fields!
+            </p>
+
+            <p>Although this is not specified in the description, it makes sense to
+                be able to get a drink offered on the menu of a coffee shop.
+                Since this method is essentially the 'partner' to one of our <code>setDrink</code> methods, 
+                it makes sense for it to be called &mdash; <code>getDrink</code>.
+                The method should take an integer parameter (the 'menu number') and should return the appropriate 
+                element in the array &mdash; remember arrays are indexed from 0 but our 'menu numbers' start at 1 so you will need to adjust the
+                value when you access the array. If the integer is outside the valid range, the method should return null.
+            </p>
+                
+            <h3>CoffeeShop class:  testing</h3>
+            <p>Test your CoffeeShop class using the autochecker:</p>
+            <pre><code>stacscheck /cs/studres/CS1002/Exercises/W08/Tests/</code></pre>
+            <p>You should read the output carefully. If all has gone well, you should see GREEN for everything.</p>
+            <p>As well as using the autochecker, you should write some code to test your CoffeeShop class manually. Again, you will not ask for any user input, instead you will create objects using hard-coded values so you can check your methods behave as you expect them to.
+            </p>
+            <p>Inside the main method in your W04Exercise2 class, add code to create a few CoffeeShop objects, set their
+                attributes and call their methods. Again, choose some hard-code values to check your class works.
+                At a minimum, you should create objects and call methods for:</p>
+            <ul>
+                <li>
+                    <p>a coffee shop called <em>Westpoint</em> which offers your two coffee drinks</p>
+                </li>
+                <li>
+                    <p>a coffee shop called <em>Cafe In the Oval</em> which offers a tea drink</p>
+                </li>
+            </ul>
+
+            <p>Compile <code>W08Exercises.java</code> and execute the program. Fix any errors you find. Remember to
+                ask
+                demonstrators for help if you need it.</p>
+            <p>Make sure that each of your coffee shop objects is storing its own details and the print method is
+                getting
+                the appropriate values from the drinks. Try to increment <em>Westpoint</em>’s star rating a few
+                times.
+                Make sure it increases but does not go above 5. Try decrementing <em>Cafe In the Oval</em>’s star
+                rating. Make sure it cannot go below 0. Try changing what drink's a coffee shop
+                offers. What happens if you call the print method before you set the drinks? If it throws and exception, can
+                you work out how to change the print method to fix it?</p>
+            <p class="hint">You can test if an object is null before you call a method on it. You can do this
+                inside you print method.</p>
+
+        </section>
+
+        <section class="nocount">
+            <h2 id="and-finally...">And finally...</h2>
+
+            <p>You should spend some time thinking about the process you just followed. Use the questions below to help
+                focus your thoughts. You do not need to produce written answers but can discuss them with your
+                classmates or demonstrators at your exercise session. There is no definitive right answer!</p>
+            <ol>
+                <li>
+                    The description starts by giving details of the coffee shop but we started by writing the code for the
+                       drink. Why do you think this is?
+                </li>
+                <li>
+                    How closely does the code you wrote match your initial ideas? What are the major differences?
+                        Will the process you have followed today impact the way you approach this type of exercise in
+                        future?
+                </li>
+            </ol>
+
+            <h3>Just for fun...</h3>
+            <p>There is no requirement to complete or submit this next part &mdash; it is just a suggestion for those who want 
+                to play around with their code some more.
+            </p>
+            <p>See if you can write a simple text-based user interface that displays the names of your
+                coffee shops and let the user choose which they want to buy from. It should then display the 
+                menu for the chosen coffee shop (using it's print method) and let the user choose which drink they want 
+                to buy. Then let them choose how many marshmallows they want in their drink. You should make as much use as
+                possible of the methods in your Mug, Drink and CoffeeShop classes to minimise code repetition.
+            </p>
+            <p class="hint">This tasks is not as simple as it may sound, but with careful use of variables to store the
+                chosen coffee shop and drink, you should be able to achieve it without too much repeated code. 
+            </p>
+        </section>
+
+        <section class="nocount">
+            <h2 id="submission">Submission</h2>
+            <p>You will need to submit your exercise attempt to MMS as a <strong>ZIP</strong> file to the Ex08
+                slot in CS1002 Exercises. As always, you should receive an automatic email receipt,
+                which you should keep since it proves that you uploaded the file.</p>
+        </section>
+    </main>
+
+    <footer>
+        <x-author><em>Author</em>: Dr Ruth Letham</x-author>
+        <x-module><em>Module</em>: CS1002 &ndash; Week 8 Exercise</x-module>
+        <x-copyright>© School of Computer Science, University of St Andrews</x-copyright>
+    </footer>
+
+</body>
+
+</html>
