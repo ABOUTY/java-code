@@ -1,0 +1,20 @@
+Traditionally, the first program that you write in _most_ languages is "Hello World".
+Take a look at the slides and video above that describe "Hello World" in Java.
+Now work through the following step in order to create and run the "Hello World" program using the IntelliJ Integrated Development Environment (IDE). If you already have IntelliJ installed on your laptop, you might like to follow these steps using your own computer. If not, don't worry - you can work through this activity on the lab machines.
+
+1. Create a new project in IntelliJ (see screenshot below for suggested project settings).
+2. Find the `java` folder in the project view panel (it should be inside the `src/main` folder).
+3. Right click on the `java` folder (`control` click on a Mac).
+4. Create a new Java Class called `HelloWorld` (by selecting `New > Java Class`).
+5. Add code to your class by copy-and-pasting the code from the above slide
+5. Make sure you save your class file !
+6. Click on the green `Run` button on the top-bar menu (or to the left of the `main` method)
+
+There will be a short delay as IntelliJ compiles and runs your code.
+If everything is successful you should see the following output in the console panel:
+
+```
+Hello World!
+
+Process finished with exit code 0
+```

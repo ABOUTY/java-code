@@ -1,0 +1,3 @@
+Note that you should NOT use any existing parsers or parser generators (Yacc, Lex, Antlr etc.) The aim of this assignment is to implement the command parsing using your own code.
+
+To help further illustrate the use of the simplified query language, we have provided <a href="resources/example-transcript.docx" target="_blank">a transcript of example queries</a>.

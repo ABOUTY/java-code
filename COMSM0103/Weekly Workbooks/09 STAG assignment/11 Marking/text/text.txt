@@ -1,0 +1,25 @@
+For consistency and compatibly with all test cases, it is essential that you adhere to the gameplay commands detailed in this workbook.
+You should also ensure that you do not change the name of your main class - it must be called `GameServer`.
+If you change the name of the class (or the `handleCommand` method) the marking script will not be able to test your code !
+It is **ESSENTIAL** that you check your code still passes the original test script provided as part of the maven project.
+If your code does not pass these basic tests, then it is likely your code not not pass any of the marking test scripts.
+
+Make sure your code does not contain anything specific to your computer (e.g. absolute file paths, operating system specific code etc).
+Before submitting your code, we advise your to test your project on a computer _other than the one it was developed on_ (e.g. a lab machine).
+Clear out all temporary files and then ensure the code compiles and runs correctly using Maven. We will apply a penalty mark if we cannot run your code
+"out of the box" - we can't spend time fixing everyones projects before we mark them !
+
+A key principle of Agile is early and regular delivery of value to the client, through the steady implementation and delivery of features. The emphasis is very much on "steady and sustainable development" - no "all-nighters", no "heroic effort". Doing most of the work in a few intensive coding sessions is just not the Agile way !
+It is important that you have experience of working with an Agile ethos. For this reason, you will be assessed on the "Agileness" of your development process. Your aim is to achieve the steady build up of features over the entire duration of the assignment.
+
+In order for us to gain insight into your development process, you should maintain your codebase in your existing GitHub repository.
+Make sure all your project work is kept inside a `cw-stag` folder on GitHub, so that the codebase is distinct from your previous assignments).
+You should commit and push to your repo on a regular basis - at the end of every coding session ("before you eat or sleep" is a good principle). You should practice continuous integration: always keep your master branch operational. It should be possible to clone the master branch of your repository and be able to compile and run the server via maven (without any kind of editing or copying of additional files) even if there are features which haven't yet been implemented !
+
+In addition to functionality, robustness and flexibility of your implemented solution, you will also be assessed on the frequency and regularity of committing working features to your repository. We will be taking into consideration the "steadiness" of the accumulation of implemented features. Note that you should also be careful to adhere to the guidelines on _what_ to push to your repository - only appropriate content should appear on GitHub (no duplicates, no built resources, no stored data etc). You will need to employ a suitable `.gitignore` file to assist with this task.
+
+Note that the "quality" of your code will be taken into account when assessing your work.
+The code quality metrics outlined earlier in this unit will be used to derive your final mark.
+It is important therefore that you adhere to the structure and style guidelines outlined in the "code quality" workbook.
+It is also essential that you take heed of the quality feedback you have received for previous exercises,
+since this will help you improve your work - not just for this exercise, but in the long term.
